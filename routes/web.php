@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardTeknisi;
 use App\Http\Controllers\DashboardUser;
 use App\Http\Controllers\DetailServisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\NotaPembayaranController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\RegisterController;
@@ -95,3 +96,5 @@ Route::put('/nota/edit/{id}', [NotaPembayaranController::class, 'aksi_edit'])->n
 Route::get('/nota/hapus/{id}', [NotaPembayaranController::class, 'aksi_hapus'])->name('aksi_hapus_nota');
 
 Route::get('/nota/cetak/{id}', [NotaPembayaranController::class, 'cetak_nota'])->name('cetak_nota');
+
+Route::get('/laporan/laba-rugi', [LaporanController::class, 'laba_rugi'])->name('laporan.laba_rugi');

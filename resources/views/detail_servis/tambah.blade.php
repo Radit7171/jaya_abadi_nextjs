@@ -42,15 +42,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="qty" class="form-label">QTY :</label>
-                                <input type="number" name="qty" id="qty" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="harga_jual_saat_ini" class="form-label">Harga Jual Saat Ini :</label>
-                                <input type="number" name="harga_jual_saat_ini" id="harga_jual_saat_ini" class="form-control" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="subtotal" class="form-label">Sub Total :</label>
-                                <input type="number" name="subtotal" id="subtotal" class="form-control" readonly>
+                                <input type="number" name="qty" id="qty" class="form-control" required>
                             </div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <button type="submit" class="btn btn-primary">Tambah Data</button>
@@ -61,32 +53,6 @@
             </div>
         </div>
     </div>
-    <script>
-        const sparepartSelect = document.getElementById('sparepart_id');
-        const hargaInput = document.getElementById('harga_jual_saat_ini');
-        const qtyInput = document.getElementById('qty');
-        const subtotalInput = document.getElementById('subtotal');
-
-        function hitung_subtotal() {
-            let qty = parseInt(qtyInput.value) || 0;
-            let harga = parseInt(hargaInput.value) || 0;
-
-            subtotalInput.value = qty * harga;
-        }
-
-        sparepartSelect.addEventListener('change', function () {
-            let harga = this.options[this.selectedIndex].getAttribute('data-harga');
-            hargaInput.value = harga;
-            hitung_subtotal();
-        });
-
-        qtyInput.addEventListener('input', hitung_subtotal);
-
-        window.addEventListener('load', function () {
-            sparepartSelect.dispatchEvent(new Event('change'));
-        });
-
-    </script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

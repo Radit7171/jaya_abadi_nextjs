@@ -21,6 +21,7 @@
         <div class="container py-2">
             <a href="#" class="navbar-brand fw-bold">TechFix & Parts</a>
             <div class="ms-auto">
+                <a href="{{ route('laporan.laba_rugi') }}" class="btn btn-outline-light me-2">Laporan Laba Rugi</a>
                 <a href="{{ route('logout') }}" class="btn btn-outline-light">Logout</a>
             </div>
         </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Servis;
+use App\Models\Spareparts;
 use Illuminate\Http\Request;
 
 class DashboardTeknisi extends Controller
@@ -11,6 +13,10 @@ class DashboardTeknisi extends Controller
         if (!session('user_id') || session('role') != 'teknisi') {
             return redirect('login');
         }
-        return view('teknisi.dashboard_teknisi');
+
+        $serviss = Servis::with(['pelanggan', 'user'])->where('user_id', session('user_id'))->get();
+        $spareparts = Spareparts::all();
+
+        return view('teknisi.dashboard_teknisi', compact('serviss', 'spareparts'));
     }
 }

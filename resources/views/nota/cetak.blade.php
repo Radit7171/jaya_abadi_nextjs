@@ -9,7 +9,7 @@
         body {
             padding: 20px;
         }
-        
+
         @media print {
             body {
                 font-size: 12px;
@@ -62,6 +62,12 @@
                 <p><strong>Total Jasa:</strong> {{ $nota->total_jasa }}</p>
                 <p><strong>Total Sparepart:</strong> {{ $nota->total_sparepart }}</p>
                 <h5><strong>Grand Total: {{ $nota->grand_total }}</strong></h5>
+            </div>
+            <div class="mt-3">
+                <h6><strong>Informasi Garansi:</strong></h6>
+                <p>Garansi Servis: 30 hari dari tanggal pembayaran (berakhir: {{ $nota->getGaransiEndDate('servis')->format('d-m-Y') }})</p>
+                <p>Garansi Sparepart: 1 tahun dari tanggal pembayaran (berakhir: {{ $nota->getGaransiEndDate('sparepart')->format('d-m-Y') }})</p>
+                {{-- <p><em>Sistem dapat mendeteksi garansi otomatis berdasarkan tanggal pembayaran dan jenis transaksi.</em></p> --}}
             </div>
             <div class="text-center mt-4 no-print">
                 <button onclick="window.print()" class="btn btn-primary">Cetak</button>
